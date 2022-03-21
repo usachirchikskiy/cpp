@@ -27,32 +27,23 @@ OBJS_TEST= $(filter-out $(OBJ)/main.o, $(OBJS)) $(SRCS_TEST:$(SRC_TEST)/%.cpp=$(
 #SUBMITNAME = project.zip
 
 #echo $LD_LIBRARY_PATH
-#.SUFFIXES:
-
-#.PHONY: lab2
 
 lab2:$(BIN)
-	
+
 $(BIN): $(OBJS)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ && ./$(BIN)
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -MMD -o $@
 
-#.PHONY: test
-
 test:$(BIN_TEST)
 
+
 $(BIN_TEST):$(OBJS_TEST)
-	$(CC) $(CFLAGS) $^ -lcppunit -o $@
+	$(CC) $(CFLAGS) $^ -lcppunit -o $@ && ./$(BIN_TEST)
 
 $(OBJ)/%.o: $(SRC_TEST)/%.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -MMD -o $@
-
-# echo $LD_LIBRARY_PATH
-
-
-#.PHONY: clean
 
 clean:
 	$(RM) -r $(BINDIR)/* $(OBJ)/*

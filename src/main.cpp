@@ -2,5 +2,5 @@
 int main(){
     controller studentControl;
     studentControl.update();
-    return 1;
+    // return 1;
 }
