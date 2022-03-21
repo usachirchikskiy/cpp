@@ -7,13 +7,17 @@ on:
       branches: [lab_2]
 
 jobs:
-  build-lab2-gcc48:
+  build-and-test:
       runs-on: ubuntu-latest
+      
       steps:
       - uses: actions/checkout@v2
+      
       - name: install cppunit
       run: sudo apt install -y libcppunit-dev
+      
       - name: make lab2
       run: make
+      
       - name: make test
       run: make test
