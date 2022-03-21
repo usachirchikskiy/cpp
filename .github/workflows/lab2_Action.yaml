@@ -9,8 +9,9 @@ on:
 jobs:
   build-and-test:
       runs-on: ubuntu-latest
-      
+
       steps:
+      - name: Check out code
       - uses: actions/checkout@v2
       
       - name: install cppunit
