@@ -2,12 +2,12 @@ name: C/C++ CI
 
 on:
   push:
-      branches: [ lab_2 ]
+      branches: [lab_2]
   pull_request:
-      branches: [ lab_2 ]
+      branches: [lab_2]
 
 jobs:
-  build-and-test:
+  build-lab2-gcc48:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v2
