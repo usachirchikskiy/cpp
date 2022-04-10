@@ -5,28 +5,39 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <cppunit/BriefTestProgressListener.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
-#include "../include/testHeader.h"
+#include "write_read.h"
+#include "utils.h"
+
 
 class Test : public CPPUNIT_NS::TestCase
 {
   CPPUNIT_TEST_SUITE(Test);
-  CPPUNIT_TEST(testHelloWorld);
-  // CPPUNIT_TEST(failHelloWorld);
+  CPPUNIT_TEST(testInstructor);
+  CPPUNIT_TEST(testStudent);
+  CPPUNIT_TEST(testCourse);
   CPPUNIT_TEST_SUITE_END();
-
+private:
+vector<dataPerCourse> data;
 public:
-  void setUp(void) {}
+  void setUp(void) {
+      data = readCSV();
+  }
   void tearDown(void) {}
 
 protected:
-  void testHelloWorld(void) {
-    CPPUNIT_ASSERT(2==2);
+
+  void testInstructor(void) {
+    CPPUNIT_ASSERT(checkInstructor("I28",data)==true);
   }
 
-   void failHelloWorld(void)
-  {
-    CPPUNIT_ASSERT(add(2,3)==4);
+  void testStudent(void) {
+    CPPUNIT_ASSERT(checkStudent("not exist id",data)==false);
   }
+
+  void testCourse(void) {
+    CPPUNIT_ASSERT(checkCourse(3130)==true);
+  }
+
 };
 
 

@@ -1,6 +1,7 @@
 CC = g++
 CFLAGS = -Wall -g
 
+<<<<<<< HEAD
 #Folders
 SRC = src
 OBJ = obj
@@ -10,18 +11,32 @@ BIN = $(BINDIR)/main
 
 SRC_TEST = test
 BIN_TEST = $(BINDIR)/helloTest
+=======
+SRC = src
+OBJ = obj
+
+BINDIR = output
+BIN = $(BINDIR)/main
+
+SRC_TEST = test
+BIN_TEST = $(BINDIR)/test
+>>>>>>> lab3
 
 INCLUDE = -I include
 INCLUDE_TEST:= -I cppunit
 
+<<<<<<< HEAD
 LD_LIBRARY_PATH=/usr/local/lib
 #Getting files in folders
+=======
+>>>>>>> lab3
 SRCS = $(wildcard $(SRC)/*.cpp)
 OBJS = $(patsubst $(SRC)/%.cpp, $(OBJ)/%.o, $(SRCS))
 
 SRCS_TEST = $(wildcard $(SRC_TEST)/*.cpp)
 OBJS_TEST= $(filter-out $(OBJ)/main.o, $(OBJS)) $(SRCS_TEST:$(SRC_TEST)/%.cpp=$(OBJ)/%.o)
 
+<<<<<<< HEAD
 #DEPENDENCIES = $(OBJS:.o=.d)
 
 #SUBMITNAME = project.zip
@@ -32,20 +47,34 @@ lab2:$(BIN)
 
 $(BIN): $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@ && ./$(BIN)
+=======
+
+lab3:$(BIN)
+	cd $(BINDIR) && ./main
+
+$(BIN): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@ 
+>>>>>>> lab3
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -MMD -o $@
 
 test:$(BIN_TEST)
 
+<<<<<<< HEAD
 
 $(BIN_TEST):$(OBJS_TEST)
 	$(CC) $(CFLAGS) $^ -lcppunit -o $@ && ./$(BIN_TEST)
+=======
+$(BIN_TEST):$(OBJS_TEST)
+	$(CC) $(CFLAGS) $^ -lcppunit -o $@ && cd $(BINDIR) && ./test
+>>>>>>> lab3
 
 $(OBJ)/%.o: $(SRC_TEST)/%.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -MMD -o $@
 
 clean:
+<<<<<<< HEAD
 	$(RM) -r $(BINDIR)/* $(OBJ)/*
 
 #--------------------------------------------------------------
@@ -88,3 +117,6 @@ clean:
 
 #g++ -std=c++17 test/helloTest.cpp -lcppunit obj/testHeader.o -o bin/mainTest
 #--------------------------------------------------------------
+=======
+	$(RM) -r $(BINDIR)/* $(OBJ)/*
+>>>>>>> lab3
