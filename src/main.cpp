@@ -1,10 +1,4 @@
 #include "controller.h"
-<<<<<<< HEAD
-int main(){
-    controller studentControl;
-    studentControl.update();
-    // return 1;
-=======
 #include "write_read.h"
 #include "calculations.h"
 
@@ -74,5 +68,4 @@ int main()
 {
     commands();
     return 0;
->>>>>>> lab3
 }

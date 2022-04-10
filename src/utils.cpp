@@ -13,8 +13,6 @@ vector<string> split(string s, char delim)
 
     return result;
 }
-<<<<<<< HEAD
-=======
 
 int isPass(Grades grade)
 {
@@ -168,4 +166,3 @@ bool checkInstructor(string id,vector<dataPerCourse> &data){
     }
     return false;
 }
->>>>>>> lab3
